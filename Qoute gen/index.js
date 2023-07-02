@@ -69,23 +69,19 @@ const mementoMoriReminders = [
     const randomIndex = Math.floor(Math.random() * mementoMoriReminders.length);
     return mementoMoriReminders[randomIndex];
   }
-  
-  // Example usage
-  const randomMementoMoriReminder = generateMementoMoriReminder();
-//   console.log(randomMementoMoriReminder);
 
   // Event listener for the button click
-    quoteButton.addEventListener('click', function() {
-    const randomStoicQuote = generateStoicQuote();
-    const randomMementoMoriReminder = generateMementoMoriReminder();
+    function showQuote() {
     const quote = generateStoicQuote();
     const mori = generateMementoMoriReminder();
     quoteDisplay1.textContent = `"${quote}"`;
     quoteDisplay2.textContent = `"${mori}"`;
+    quoteButton.innerHTML = 'Memento Mori';
+    quoteButton.removeEventListener('click', showQuote);
 
-  });
+  };
 
-
-
+  quoteButton.addEventListener('click', showQuote);
+  
 
   
